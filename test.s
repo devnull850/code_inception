@@ -16,6 +16,10 @@ f:
 	syscall
 	testl	%eax,%eax
 	jns	.L0
+	xorl	%edi,%edi
+	pushq	$0x3c
+	popq	%rax
+	syscall
 .L0:
 	movl	%ebx,%eax
 	shrl	$0x10,%eax
