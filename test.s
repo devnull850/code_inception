@@ -8,7 +8,6 @@ f:
 	shrl	$0x10,%eax
 	xorb	$0x2e,%al
 	movzxb	%al,%eax
-	popq	%rbx
 	ret
 
 _start:
