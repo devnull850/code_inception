@@ -5,23 +5,6 @@
 f:
 	popq	%rax
 	pushq	%rax
-	pushq	%rbx
-	movq	%rax,%rbx
-	pushq	$0x65
-	popq	%rax
-	xorl	%edi,%edi
-	xorl	%edx,%edx
-	xorl	%esi,%esi
-	xorl	%r10d,%r10d
-	syscall
-	testl	%eax,%eax
-	jns	.L0
-	xorl	%edi,%edi
-	pushq	$0x3c
-	popq	%rax
-	syscall
-.L0:
-	movl	%ebx,%eax
 	shrl	$0x10,%eax
 	xorb	$0x2e,%al
 	movzxb	%al,%eax
@@ -37,7 +20,7 @@ _start:
 	popq	%rax
 	syscall
 	pushq	%rax
-	addb	$0x31,%al
+	addb	$0x58,%al
 	movq	%rax,%rdi
 	pushq	$0xc
 	popq	%rax
@@ -46,33 +29,48 @@ _start:
 	popq	%rax
 	popq	%rdi
 	pushq	%rdi
-	pushq	$0x31
+	pushq	$0x58
 	popq	%rsi
 	pushq	$7
 	popq	%rdx
 	syscall
 	xorl	%ecx,%ecx
 	popq	%rdi
-	movq	$0x1c014a6aa93eae5f,%rax
+	movq	$0x6f04316c04364704,%rax
 	movq	%rax,0x0(%rdi,%rcx,8)
 	incl	%ecx
-	movq	$0x4f6a4a2aa9080a02,%rax
+	movq	$0x5fabe76b61bc5f30,%rax
 	movq	%rax,0x0(%rdi,%rcx,8)
 	incl	%ecx
-	movq	$0x102020b26d62664,%rax
+	movq	$0x807149193d63eae,%rax
 	movq	%rax,0x0(%rdi,%rcx,8)
 	incl	%ecx
-	movq	$0x4366f043e394e42,%rax
+	movq	$0xe73644043e919eed,%rax
 	movq	%rax,0x0(%rdi,%rcx,8)
 	incl	%ecx
-	movq	$0x34600488e726316f,%rax
+	movq	$0x61347e0488e72681,%rax
 	movq	%rax,0x0(%rdi,%rcx,8)
 	incl	%ecx
-	movq	$0x61365204915f6b61,%rax
+	movq	$0xe7364f04356c046b,%rax
 	movq	%rax,0x0(%rdi,%rcx,8)
-	pushq	$0x30
-	popq	%rcx
-	movb	$0x6b,0x0(%rdi,%rcx,1)
+	incl	%ecx
+	movq	$0x17a5916b61b0e781,%rax
+	movq	%rax,0x0(%rdi,%rcx,8)
+	incl	%ecx
+	movq	$0xc41d4263eae5f9d,%rax
+	movq	%rax,0x0(%rdi,%rcx,8)
+	incl	%ecx
+	movq	$0x263c061d41410007,%rax
+	movq	%rax,0x0(%rdi,%rcx,8)
+	incl	%ecx
+	movq	$0x26398ce7263e89e7,%rax
+	movq	%rax,0x0(%rdi,%rcx,8)
+	incl	%ecx
+	movq	$0x6b61fe36550488e7,%rax
+	movq	%rax,0x0(%rdi,%rcx,8)
+	incl	%ecx
+	shll	$3,%ecx
+	decl	%ecx
 	popq	%rax
 .L1:
 	xorb	%al,0x0(%rdi,%rcx,1)
